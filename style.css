@@ -19,3 +19,67 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.carousel-item img {
+    height: 300px; /* Mantiene la altura de las imágenes */
+    object-fit: cover; /* Cubre el área del header */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+.header img {
+    width: 100%; /* Asegura que la imagen cubra todo el ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 400px; /* Establece una altura máxima para la imagen */
+    object-fit: cover; /* Cubre el área del header sin distorsionar */
+}
+
+.header-caption {
+    position: absolute; /* Posiciona el texto sobre la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    padding: 20px;
+    border-radius: 10px;
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}
+
+.header {
+    position: relative;
+    width: 100%; /* Ancho completo del contenedor */
+    height: 200px; /* Altura del encabezado */
+    background-color: #3498db; /* Color de fondo (puedes cambiarlo) */
+    display: flex; /* Usa flexbox para alinear el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    flex-direction: column; /* Alinea el logo y el texto en columna */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}
+
+.logo {
+    margin-bottom: 10px; /* Espacio entre el logo y el texto */
+}
+
+.logo-img {
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción del logo */
+}
+
+.header-content h1 {
+    margin: 0; /* Elimina el margen superior del h1 */
+    font-size: 2em; /* Ajusta el tamaño de la fuente */
+}
+
+.header-content p {
+    margin: 0; /* Elimina el margen superior del p */
+    font-size: 1.2em; /* Ajusta el tamaño de la fuente */
+}

@@ -13,7 +13,8 @@
         <p>Las últimas noticias al instante</p>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <!--nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Inicio</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
@@ -24,9 +25,58 @@
                 <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
             </ul>
         </div>
-    </nav>
+    </nav-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto" id="nav-items"></ul>
+    </div>
+</nav>
 
-    <main class="container mt-4">
+<script>
+    const navItems = [
+        { name: 'Mundo', link: '#' },
+        { name: 'Deportes', link: '#' },
+        { name: 'Cultura', link: '#' },
+        { name: 'Tecnología', link: '#' },
+        { name: 'Contacto', link: '#' },
+        { name: 'Más', link: '#', dropdown: [
+            { name: 'Opinión', link: '#' },
+            { name: 'Estilo de Vida', link: '#' }
+        ]}
+    ];
+
+    const navList = document.getElementById('nav-items');
+
+    navItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+
+        if (item.dropdown) {
+            li.classList.add('dropdown');
+            li.innerHTML = `
+                <a class="nav-link dropdown-toggle" href="${item.link}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ${item.name}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    ${item.dropdown.map(subItem => `
+                        <a class="dropdown-item" href="${subItem.link}">${subItem.name}</a>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            li.innerHTML = `<a class="nav-link" href="${item.link}">${item.name}</a>`;
+        }
+
+        navList.appendChild(li);
+    });
+</script>
+
+
+    <!--main class="container mt-4">
         <div class="row">
             <div class="col-md-8">
                 <article class="mb-4">
@@ -66,7 +116,100 @@
                 </ul>
             </aside>
         </div>
-    </main>
+    </main -->
+    <main class="container mt-4">
+    <!-- Carrusel de Noticias -->
+    <div id="newsCarousel" class="carousel slide mb-4" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://via.placeholder.com/800x400?text=Noticia+1" class="d-block w-100" alt="Noticia 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título de la Noticia 1</h5>
+                    <p>Descripción breve de la noticia 1.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400?text=Noticia+2" class="d-block w-100" alt="Noticia 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título de la Noticia 2</h5>
+                    <p>Descripción breve de la noticia 2.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400?text=Noticia+3" class="d-block w-100" alt="Noticia 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título de la Noticia 3</h5>
+                    <p>Descripción breve de la noticia 3.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400?text=Noticia+4" class="d-block w-100" alt="Noticia 4">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título de la Noticia 4</h5>
+                    <p>Descripción breve de la noticia 4.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400?text=Noticia+5" class="d-block w-100" alt="Noticia 5">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título de la Noticia 5</h5>
+                    <p>Descripción breve de la noticia 5.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#newsCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <article class="mb-4">
+                <h2>Título de la noticia principal</h2>
+                <img src="https://via.placeholder.com/800x200?text=Noticia+Principal" class="img-fluid" alt="Noticia Principal">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="#" class="btn btn-primary">Leer más</a>
+            </article>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <article class="card">
+                        <img src="https://via.placeholder.com/400x200?text=Noticia+1" class="card-img-top" alt="Noticia 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Título de noticia 1</h5>
+                            <p class="card-text">Resumen de la noticia 1. Lorem ipsum dolor sit amet.</p>
+                            <a href="#" class="btn btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <article class="card">
+                        <img src="https://via.placeholder.com/400x200?text=Noticia+2" class="card-img-top" alt="Noticia 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Título de noticia 2</h5>
+                            <p class="card-text">Resumen de la noticia 2. Lorem ipsum dolor sit amet.</p>
+                            <a href="#" class="btn btn-secondary">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <aside class="col-md-4">
+            <h3>Últimas Noticias</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Noticia 1</li>
+                <li class="list-group-item">Noticia 2</li>
+                <li class="list-group-item">Noticia 3</li>
+            </ul>
+        </aside>
+    </div>
+</main>
 
     <footer class="bg-dark text-white text-center py-4">
         <p>&copy; 2024 Periódico Informativo. Todos los derechos reservados.</p>
