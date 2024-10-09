@@ -1,0 +1,12 @@
+[
+    {
+        "titulo": "Título de la noticia 1",
+        "resumen": "Resumen de la noticia 1.",
+        "link": "#"
+    },
+    {
+        "titulo": "Título de la noticia 2",
+        "resumen": "Resumen de la noticia 2.",
+        "link": "#"
+    }
+]
